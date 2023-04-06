@@ -7,10 +7,23 @@ class Car {
         int speed = 0;
         int year;
 
+        Car(std::string b = "empty", std::string m = "empty", int s = 0, int y = 0) {
+            brand = b;
+            model = m;
+            speed = s;
+            year = y;
+            std::cout << "Constructor is called!" << "\n";
+        }
+
         void acceleration(int speedPlus) {
             speed = speed + speedPlus;
         }
+        void info(int number);
 };
+
+void Car::info(int number) {
+    std::cout << "number: " << number << "\n" << "brand: " << brand << "\n" << "model: " << model << "\n" << "speed: " << speed << "\n" << "year: " << year << "\n";
+}
 
 int main() {
     Car carObj1;
@@ -28,5 +41,7 @@ int main() {
     std::cout << carObj2.speed << "\n";
     carObj2.acceleration(10);
     std::cout << carObj2.speed << "\n";
+
+    carObj1.info(1);
     return 0;
 }
