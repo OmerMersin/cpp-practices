@@ -1,6 +1,10 @@
 #include <iostream>
 
 class Car {
+    int alsoPrivate = 7; // private by default
+    private:
+        std::string p; // private variable
+        int salary;
     public:
         std::string brand;
         std::string model;
@@ -19,6 +23,21 @@ class Car {
             speed = speed + speedPlus;
         }
         void info(int number);
+
+        void callPrivates() {
+            p = "private";
+            std::cout << p << "\n";
+            std::cout << alsoPrivate << "\n";
+        }
+
+        // Setter
+        void setSalary(int s) {
+            salary = s;
+        }
+        // Getter
+        int getSalary() {
+            return salary;
+        }
 };
 
 void Car::info(int number) {
@@ -41,6 +60,9 @@ int main() {
     std::cout << carObj2.speed << "\n";
     carObj2.acceleration(10);
     std::cout << carObj2.speed << "\n";
+    carObj2.callPrivates();
+    carObj2.setSalary(50000);
+    std::cout << carObj2.getSalary() << "\n";
 
     carObj1.info(1);
     return 0;
